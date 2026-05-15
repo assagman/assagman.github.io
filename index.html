@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sercan — Software Engineer</title>
-  <meta name="description" content="Software engineer focused on building clean, fast, reliable systems.">
+  <title>Sercan — Senior Software Engineer</title>
+  <meta name="description" content="Senior software engineer focused on backend systems, data pipelines, cloud integrations, and reliable software delivery.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -210,7 +210,7 @@
     }
 
     /* ── Section ── */
-    section { padding: 100px 0; }
+    section { padding: 100px 0; scroll-margin-top: 60px; }
     .section-label {
       font-family: var(--font-mono);
       font-size: 13px;
@@ -300,6 +300,56 @@
       border: 1px solid var(--card-border);
     }
 
+    /* ── Experience ── */
+    .experience-list { display: flex; flex-direction: column; gap: 22px; }
+    .experience-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(var(--accent), var(--accent-light));
+    }
+    .experience-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); border-color: var(--accent-light); }
+    .experience-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .experience-card h3 { font-size: 20px; line-height: 1.35; color: var(--code); margin-bottom: 12px; }
+    .experience-card h3 span { color: var(--text-muted); font-style: italic; font-weight: 500; }
+    .experience-card ul { margin-left: 18px; color: var(--text-muted); font-size: 14px; }
+    .experience-card li { margin: 8px 0; }
+    .education-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      background: var(--bg-alt);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-top: 22px;
+    }
+    .education-card h3 { font-size: 18px; color: var(--code); }
+    .education-card p { color: var(--text-muted); font-size: 14px; }
+    .contribution-link {
+      display: inline-flex;
+      margin-top: 18px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+    }
+
     /* ── Projects ── */
     .projects-list { display: flex; flex-direction: column; gap: 20px; }
     .project-card {
@@ -374,6 +424,7 @@
     @media (max-width: 768px) {
       .about-grid { grid-template-columns: 1fr; }
       .project-card { grid-template-columns: 1fr; }
+      .education-card { grid-template-columns: 1fr; }
       .project-links { align-self: start; }
       .nav-links { gap: 16px; }
       .hero-terminal { margin-top: 36px; }
@@ -397,6 +448,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -407,11 +459,11 @@
   <section class="hero">
     <div class="container hero-inner">
       <p class="hero-greeting">// hello, world</p>
-      <h1>I build things<br>for the <span>web</span>.</h1>
-      <p class="hero-sub">Software engineer who cares about clean code, fast systems, and shipping products that matter.</p>
+      <h1>I build reliable<br><span>data systems</span>.</h1>
+      <p class="hero-sub">Senior software engineer focused on backend systems, data pipelines, cloud integrations, and developer-friendly products.</p>
       <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View Projects ↓</a>
-        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        <a href="#experience" class="btn btn-primary">View Experience ↓</a>
+        <a href="#projects" class="btn btn-ghost">Explore Work</a>
       </div>
 
       <div class="hero-terminal">
@@ -427,9 +479,9 @@
           <br>
           <div>{</div>
           <div>&nbsp;&nbsp;<span class="str">"name"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Sercan",</div>
-          <div>&nbsp;&nbsp;<span class="str">"role"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Software Engineer",</div>
-          <div>&nbsp;&nbsp;<span class="str">"focus"</span>:&nbsp;&nbsp;&nbsp;&nbsp;"Full-stack & Systems",</div>
-          <div>&nbsp;&nbsp;<span class="str">"passion"</span>:&nbsp;&nbsp;&nbsp;"Building things well",</div>
+          <div>&nbsp;&nbsp;<span class="str">"role"</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Senior Software Engineer",</div>
+          <div>&nbsp;&nbsp;<span class="str">"focus"</span>:&nbsp;&nbsp;&nbsp;&nbsp;"Data, Backend, Cloud",</div>
+          <div>&nbsp;&nbsp;<span class="str">"stack"</span>:&nbsp;&nbsp;&nbsp;&nbsp;["Python", "C#", "Spark", "Airflow"],</div>
           <div>&nbsp;&nbsp;<span class="str">"coffee"</span>:&nbsp;&nbsp;&nbsp;true</div>
           <div>}<span class="typing-cursor"></span></div>
         </div>
@@ -446,26 +498,26 @@
       </div>
       <div class="about-grid">
         <div class="about-text reveal">
-          <p>I'm a <strong>software engineer</strong> who loves turning complex problems into simple, beautiful solutions. I write code that's fast, readable, and ships.</p>
-          <p>My interests span <strong>systems programming</strong>, <strong>web architecture</strong>, <strong>developer tooling</strong>, and everything in between. I believe great software comes from understanding the problem deeply before writing a single line.</p>
-          <p>When I'm not coding, I'm probably reading about distributed systems, contributing to open source, or optimizing my terminal config for the hundredth time.</p>
+          <p>I'm a <strong>senior software engineer</strong> with experience across retail analytics, healthcare imaging, motion tracking, and internal developer platforms.</p>
+          <p>I build and operate <strong>pricing algorithms</strong>, <strong>big data ETL pipelines</strong>, <strong>REST APIs</strong>, <strong>Airflow workflows</strong>, and cloud-integrated systems using Python, C#, SQL Server, Spark, Docker, AWS, and Azure.</p>
+          <p>I also enjoy technical leadership: Scrum, test automation, CI/CD, monitoring, and turning messy business requirements into reliable software.</p>
         </div>
         <div class="about-stats reveal">
           <div class="stat-card">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Years Coding</div>
+            <div class="stat-number">9+</div>
+            <div class="stat-label">Years Experience</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">20+</div>
-            <div class="stat-label">Projects Shipped</div>
+            <div class="stat-number">4</div>
+            <div class="stat-label">Companies</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">∞</div>
-            <div class="stat-label">Curiosity Level</div>
+            <div class="stat-number">1</div>
+            <div class="stat-label">Apache Airflow PR</div>
           </div>
           <div class="stat-card">
-            <div class="stat-number">☕</div>
-            <div class="stat-label">Fuel of Choice</div>
+            <div class="stat-number">2</div>
+            <div class="stat-label">Spoken Languages</div>
           </div>
         </div>
       </div>
@@ -482,64 +534,132 @@
       <div class="skills-grid">
         <div class="skill-card reveal">
           <span class="skill-icon">⚡</span>
-          <h3>Languages</h3>
-          <p>Comfortable across multiple paradigms — from low-level systems to high-level application code.</p>
+          <h3>Core Stack</h3>
+          <p>Comfortable across backend, data, desktop, and application code.</p>
           <div class="skill-tags">
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">Go</span>
-            <span class="skill-tag">Rust</span>
             <span class="skill-tag">Python</span>
-            <span class="skill-tag">Ruby</span>
-            <span class="skill-tag">C</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">C/C++</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Linux/Bash</span>
           </div>
         </div>
         <div class="skill-card reveal">
           <span class="skill-icon">🏗️</span>
-          <h3>Backend & Systems</h3>
-          <p>Building scalable APIs, microservices, and infrastructure that handles real load.</p>
+          <h3>Backend & Data</h3>
+          <p>Building APIs, retail optimization systems, internal libraries, ETL pipelines, and data-heavy services.</p>
           <div class="skill-tags">
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">FastAPI</span>
-            <span class="skill-tag">Rails</span>
-            <span class="skill-tag">gRPC</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">.NET Core</span>
+            <span class="skill-tag">PySpark</span>
+            <span class="skill-tag">Apache Spark</span>
+            <span class="skill-tag">Apache Airflow</span>
+            <span class="skill-tag">SQL Server</span>
             <span class="skill-tag">PostgreSQL</span>
             <span class="skill-tag">Redis</span>
+            <span class="skill-tag">Elasticsearch</span>
           </div>
         </div>
         <div class="skill-card reveal">
           <span class="skill-icon">🎨</span>
-          <h3>Frontend</h3>
-          <p>Creating interfaces that are fast, accessible, and delightful to use.</p>
+          <h3>Frontend & Apps</h3>
+          <p>Building web applications, Android apps, desktop tools, and internal product interfaces.</p>
           <div class="skill-tags">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">Next.js</span>
-            <span class="skill-tag">Vue</span>
-            <span class="skill-tag">Tailwind</span>
+            <span class="skill-tag">JavaScript</span>
             <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">jQuery</span>
+            <span class="skill-tag">Android</span>
+            <span class="skill-tag">Desktop UI</span>
           </div>
         </div>
         <div class="skill-card reveal">
           <span class="skill-icon">🚀</span>
-          <h3>DevOps & Tools</h3>
-          <p>Infrastructure as code, CI/CD pipelines, and keeping the lights on.</p>
+          <h3>Cloud & Operations</h3>
+          <p>Shipping containerized apps, automating delivery, and monitoring production systems.</p>
           <div class="skill-tags">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">Databricks</span>
             <span class="skill-tag">Docker</span>
             <span class="skill-tag">K8s</span>
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">CI/CD</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">Datadog</span>
+            <span class="skill-tag">Kibana</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects">
+  <!-- Experience -->
+  <section id="experience">
     <div class="container">
       <div class="reveal">
-        <p class="section-label">03 — Projects</p>
+        <p class="section-label">03 — Experience</p>
+        <h2 class="section-title">Where I've built</h2>
+      </div>
+      <div class="experience-list">
+        <article class="experience-card reveal">
+          <p class="experience-meta">Jan 2019 — Jan 2024 · Istanbul</p>
+          <h3>Invent Analytics · <span>Senior Software Engineer</span></h3>
+          <ul>
+            <li>Scrum master and tech lead from Oct 2021 to Jan 2024.</li>
+            <li>Developed pricing and inventory optimization algorithms for retail products with C# and SQL Server.</li>
+            <li>Built big data ETL pipelines using Apache Spark and optimized SQL procedures plus Spark applications.</li>
+            <li>Delivered internal Python libraries, REST API services, web applications, automated tests, and CI/CD pipelines.</li>
+            <li>Orchestrated business workflows with Apache Airflow and integrated systems with AWS, Azure, and solver services.</li>
+            <li>Monitored cost, performance, resource usage, exceptions, and logs with production observability tooling.</li>
+          </ul>
+        </article>
+
+        <article class="experience-card reveal">
+          <p class="experience-meta">Aug 2017 — Dec 2018 · Istanbul</p>
+          <h3>Physhome Bilişim Teknolojileri A.Ş. · <span>Software Developer</span></h3>
+          <ul>
+            <li>Developed Android applications communicating with wearable sensors for motion tracking.</li>
+            <li>Built IMU-based motion tracking algorithms and optimized algorithms through testing.</li>
+            <li>Created Python desktop software for motion data analysis and machine learning workflows.</li>
+            <li>Integrated motion detection algorithms into Android applications and internal APIs.</li>
+          </ul>
+        </article>
+
+        <article class="experience-card reveal">
+          <p class="experience-meta">July 2015 — Aug 2017 · Istanbul</p>
+          <h3>Telemed Teknoloji Araştırmaları · <span>Software Developer</span></h3>
+          <ul>
+            <li>Developed and maintained C++ medical desktop software for visualization, measurement, and MR image analysis.</li>
+            <li>Contributed to planning, development, algorithms, GUI, and database design.</li>
+            <li>Demoed product to radiologists, collected feedback, and iterated on new requirements.</li>
+          </ul>
+        </article>
+
+        <article class="experience-card reveal">
+          <p class="experience-meta">Aug 2014 — Sep 2014 · Istanbul</p>
+          <h3>Vela Teknoloji Otomasyon Sistemleri · <span>Software Developer</span></h3>
+          <ul>
+            <li>Programmed PIC microcontroller with PICKit2.</li>
+            <li>Worked with Arduino, I2C, SPI, accelerometer, and gyroscope data transfer/analysis.</li>
+          </ul>
+        </article>
+
+        <div class="education-card reveal">
+          <div>
+            <p class="experience-meta">Education</p>
+            <h3>BS, Electrical & Electronics Engineering</h3>
+            <p>Boğaziçi University · Istanbul · Aug 2018</p>
+          </div>
+          <a class="project-link" href="https://github.com/apache/airflow/pull/22389" target="_blank" rel="noopener">Apache Airflow PR ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">04 — Projects</p>
         <h2 class="section-title">Selected work</h2>
       </div>
       <div class="projects-list">
@@ -575,12 +695,12 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact" style="background: var(--bg-alt);">
+  <section id="contact" class="contact">
     <div class="container">
       <div class="reveal">
-        <p class="section-label">04 — Contact</p>
+        <p class="section-label">05 — Contact</p>
         <h2 class="section-title">Let's connect</h2>
-        <p class="contact-text">Whether you have a project in mind, want to collaborate, or just want to say hi — my inbox is always open.</p>
+        <p class="contact-text">Fluent in English, native in Turkish, curious about software, music production, audio/video editing, philosophy, literature, and poetry.</p>
       </div>
       <div class="contact-links reveal">
         <a href="https://github.com/assagman" class="contact-link" target="_blank" rel="noopener">
@@ -591,9 +711,9 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
-        <a href="mailto:sercan@example.com" class="contact-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          Email
+        <a href="https://github.com/apache/airflow/pull/22389" class="contact-link" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/><path d="M2 12h20"/><path d="m5 7-3 5 3 5"/><path d="m19 7 3 5-3 5"/></svg>
+          Open Source
         </a>
       </div>
     </div>
